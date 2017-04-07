@@ -1,0 +1,131 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/marklagendijk/lodash-deep"
+
+    >lodash-deep (v2.0.0)</a>
+</h1>
+<h4>Lodash mixins for (deep) object accessing / manipulation.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.lodash-deep">module lodash-deep</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lodash-deep.deepMapValues">
+            function <span class="apidocSignatureSpan">lodash-deep.</span>deepMapValues
+            <span class="apidocSignatureSpan">(object, callback, propertyPath)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.lodash-deep" id="apidoc.module.lodash-deep">module lodash-deep</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.lodash-deep.deepMapValues" id="apidoc.element.lodash-deep.deepMapValues">
+        function <span class="apidocSignatureSpan">lodash-deep.</span>deepMapValues
+        <span class="apidocSignatureSpan">(object, callback, propertyPath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">deepMapValues = function (object, callback, propertyPath){
+    propertyPath = propertyPath || &#x27;&#x27;;
+    if(_.isArray(object)){
+        return _.map(object, deepMapValuesIteratee);
+    }
+    else if(_.isObject(object) &#x26;&#x26; !_.isDate(object) &#x26;&#x26; !_.isRegExp(object) &#x26;&#x26; !_.isFunction(object)){
+        return _.extend({}, object, _.mapValues(object, deepMapValuesIteratee));
+    }
+    else{
+        return callback(object, propertyPath);
+    }
+
+    function deepMapValuesIteratee(value, key){
+        var valuePath = propertyPath ? propertyPath + &#x27;.&#x27; + key: key;
+        return _.deepMapValues(value, callback, valuePath);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    _.mixin(require(&#x22;lodash-deep&#x22;));
+    ```
+
+## Docs
+The following mixins are included in `lodash-deep`:
+- [_.deepMapValues](#_deepmapvaluesobject-propertypath)
+
+### _.<span class="apidocCodeKeywordSpan">deepMapValues</span>(object, propertyPath)
+Maps all values in an object tree and returns a new object with the same structure as the original.
+
+#### object
+Type: `Object`
+
+The root object of the object tree.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
