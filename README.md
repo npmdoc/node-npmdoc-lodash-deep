@@ -1,9 +1,14 @@
-# api documentation for  [lodash-deep (v2.0.0)](https://github.com/marklagendijk/lodash-deep)  [![npm package](https://img.shields.io/npm/v/npmdoc-lodash-deep.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-lodash-deep) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-lodash-deep.svg)](https://travis-ci.org/npmdoc/node-npmdoc-lodash-deep)
+# npmdoc-lodash-deep
+
+#### api documentation for  [lodash-deep (v2.0.0)](https://github.com/marklagendijk/lodash-deep)  [![npm package](https://img.shields.io/npm/v/npmdoc-lodash-deep.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-lodash-deep) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-lodash-deep.svg)](https://travis-ci.org/npmdoc/node-npmdoc-lodash-deep)
+
 #### Lodash mixins for (deep) object accessing / manipulation.
 
-[![NPM](https://nodei.co/npm/lodash-deep.png?downloads=true)](https://www.npmjs.com/package/lodash-deep)
+[![NPM](https://nodei.co/npm/lodash-deep.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/lodash-deep)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-lodash-deep/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-lodash-deep_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-lodash-deep/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-lodash-deep/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-lodash-deep/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-lodash-deep/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-lodash-deep/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-lodash-deep/build/screenCapture.npmPackageListing.svg)
 
@@ -17,8 +22,7 @@
 
 {
     "author": {
-        "name": "Mark Lagendijk",
-        "email": "mark@lagendijk.info"
+        "name": "Mark Lagendijk"
     },
     "bugs": {
         "url": "https://github.com/marklagendijk/lodash-deep/issues"
@@ -62,13 +66,11 @@
     "main": "lodash-deep.js",
     "maintainers": [
         {
-            "name": "marklagendijk",
-            "email": "mark@lagendijk.info"
+            "name": "marklagendijk"
         }
     ],
     "name": "lodash-deep",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/marklagendijk/lodash-deep.git"
@@ -78,58 +80,6 @@
     },
     "version": "2.0.0"
 }
-```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module lodash-deep](#apidoc.module.lodash-deep)
-1.  [function <span class="apidocSignatureSpan">lodash-deep.</span>deepMapValues (object, callback, propertyPath)](#apidoc.element.lodash-deep.deepMapValues)
-
-
-
-# <a name="apidoc.module.lodash-deep"></a>[module lodash-deep](#apidoc.module.lodash-deep)
-
-#### <a name="apidoc.element.lodash-deep.deepMapValues"></a>[function <span class="apidocSignatureSpan">lodash-deep.</span>deepMapValues (object, callback, propertyPath)](#apidoc.element.lodash-deep.deepMapValues)
-- description and source-code
-```javascript
-deepMapValues = function (object, callback, propertyPath){
-    propertyPath = propertyPath || '';
-    if(_.isArray(object)){
-        return _.map(object, deepMapValuesIteratee);
-    }
-    else if(_.isObject(object) && !_.isDate(object) && !_.isRegExp(object) && !_.isFunction(object)){
-        return _.extend({}, object, _.mapValues(object, deepMapValuesIteratee));
-    }
-    else{
-        return callback(object, propertyPath);
-    }
-
-    function deepMapValuesIteratee(value, key){
-        var valuePath = propertyPath ? propertyPath + '.' + key: key;
-        return _.deepMapValues(value, callback, valuePath);
-    }
-}
-```
-- example usage
-```shell
-...
-    _.mixin(require("lodash-deep"));
-    '''
-
-## Docs
-The following mixins are included in 'lodash-deep':
-- [_.deepMapValues](#_deepmapvaluesobject-propertypath)
-
-### _.deepMapValues(object, propertyPath)
-Maps all values in an object tree and returns a new object with the same structure as the original.
-
-#### object
-Type: 'Object'
-
-The root object of the object tree.
-...
 ```
 
 
